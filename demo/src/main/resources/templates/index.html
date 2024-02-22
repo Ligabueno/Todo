@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>TODO-Liste</title>
+</head>
+<body>
+<h1>TODO-Liste</h1>
+
+<form action="/addTask" method="post">
+    <input type="text" name="taskName" placeholder="Neue Aufgabe eingeben.." >
+    <button type="submit">Hinzufügen</button>
+</form>
+
+<form action="/checked" method="get">
+    <ul th:each="task : ${tasks}">
+        <button type="checkbox" name="task" th:value="${task}"> Löschen </button>
+        <label th:text="${task}"></label>
+    </ul>
+</form>
+
+</body>
+</html>
